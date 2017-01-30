@@ -11,7 +11,7 @@ server = app.listen port, (err)->
       role: 'util'
       cmd: 'log'
       service: 'API Server'
-      message: "API Server v#{PH_API_V} started on port #{port}"
+      message: "API Server v#{process.env.PH_API_V} started on port #{port}"
     act log_opts
 
 module.exports = server

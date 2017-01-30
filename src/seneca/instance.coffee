@@ -1,4 +1,5 @@
 seneca = require 'seneca'
+credentials = "#{process.env.PH_RABBIT_USER}:#{process.env.PH_RABBIT_PASS}"
 options =
   internal:
     logger: require 'seneca-legacy-logger'
@@ -10,6 +11,6 @@ options =
 seneca = seneca options
   .use 'seneca-amqp-transport', {
     amqp:
-      url: 'amqp://guest:guest@rabbitmq:5672'
+      url: "amqp://#{credentials}@rabbitmq:5672"
   }
 module.exports = seneca
