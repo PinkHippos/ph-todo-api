@@ -1,7 +1,7 @@
 {assign} = require 'lodash'
 
-act = require "#{__dirname}/act"
-send_error = require "#{__dirname}/helpers/send_error"
+act = require "#{__dirname}/../seneca/act"
+send_error = require "#{__dirname}/../helpers/send_error"
 
 module.exports = (req, res)->
   # Set base action opts
