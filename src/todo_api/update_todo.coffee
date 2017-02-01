@@ -4,8 +4,9 @@ send_error = require "#{__dirname}/../helpers/send_error"
 module.exports = (req, res)->
   update_opts =
     role: 'todo'
-    cmd: 'get_todos'
+    cmd: 'update_todo'
     id: req.params.id
+    changes: req.body
   act update_opts
   .catch send_error res
   .then (updated_todo)->

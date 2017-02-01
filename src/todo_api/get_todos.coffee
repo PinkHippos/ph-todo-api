@@ -14,9 +14,10 @@ module.exports = (req, res)->
 
   # Execute the action
   act get_opts
-  .catch send_error res
   .then (todos)->
     # Send all the retrieved todos
     res
       .status 200
       .json todos
+  .catch send_error res
+  
