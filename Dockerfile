@@ -1,15 +1,11 @@
-FROM node:argon
+FROM node:8
 
-WORKDIR usr/mircoserv/ph-todo-api
+WORKDIR /mircoserv/
 
 ADD src ./src
 ADD package.json ./package.json
 ADD yarn.lock .
 
-RUN npm i -g coffee-script yarn; yarn install
-
-RUN coffee -o ./build/seneca -c ./src/seneca/*.coffee ; coffee -o ./build/todo_api -c ./src/todo_api/*.coffee ; coffee -o ./build -c ./src/*.coffee
-
-RUN rm -rf ./src
-
-WORKDIR usr/mircoserv/ph-todo-api/build
+RUN npm i -g yarn; \
+    yarn install; \
+    yarn build
