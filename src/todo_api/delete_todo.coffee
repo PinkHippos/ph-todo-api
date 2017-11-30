@@ -1,4 +1,3 @@
-act = require "#{__dirname}/../seneca/act"
 send_error = require "#{__dirname}/../helpers/send_error"
 
 module.exports = (req, res)->
@@ -7,7 +6,7 @@ module.exports = (req, res)->
     role: 'todo'
     cmd: 'delete_todo'
     id: id
-  act delete_opts
+  req.app.locals.act delete_opts
   .catch send_error res
   .then ->
     res
