@@ -19,7 +19,6 @@
     "helmet": "^3.4.0",
     "lodash": "^4.17.4",
     "morgan": "^1.7.0",
-    "q": "^1.4.1",
     "seneca": "^3.2.2",
     "seneca-amqp-transport": "2.1.0",
     "seneca-legacy-logger": "^0.1.0",
