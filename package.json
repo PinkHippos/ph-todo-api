@@ -4,7 +4,8 @@
   "description": "API server for ph-todo-example",
   "scripts": {
     "build": "coffee --output $PWD/build/ --compile $PWD/src/",
-    "start": "node build/provision.js && node build/server.js"
+    "start": "node build/provision.js && node build/server.js",
+    "test": "mocha --require coffeescript/register test/**/*.spec.coffee"
   },
   "main": "server.js",
   "repository": "https://github.com/PinkHippos/ph-todo-api.git",
@@ -18,13 +19,17 @@
     "helmet": "^3.4.0",
     "lodash": "^4.17.4",
     "morgan": "^1.7.0",
-    "q": "^1.4.1",
     "seneca": "^3.2.2",
     "seneca-amqp-transport": "2.1.0",
     "seneca-legacy-logger": "^0.1.0",
     "tcp-ping": "^0.1.1"
   },
   "devDependencies": {
-    "coffeescript": "^2.0.2"
+    "chai": "^4.1.2",
+    "coffeescript": "^2.0.2",
+    "mocha": "^4.0.1",
+    "proxyquire": "^1.8.0",
+    "sinon": "^4.1.2",
+    "supertest": "^3.0.0"
   }
 }

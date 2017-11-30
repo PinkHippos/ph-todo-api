@@ -1,6 +1,5 @@
 {assign} = require 'lodash'
 
-act = require "#{__dirname}/../seneca/act"
 send_error = require "#{__dirname}/../helpers/send_error"
 
 module.exports = (req, res)->
@@ -13,11 +12,10 @@ module.exports = (req, res)->
   get_opts = assign get_opts, req.query
 
   # Execute the action
-  act get_opts
+  req.app.locals.act get_opts
   .then (todos)->
     # Send all the retrieved todos
     res
       .status 200
       .json todos
   .catch send_error res
-  

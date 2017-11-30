@@ -1,4 +1,3 @@
-act = require "#{__dirname}/../seneca/act"
 send_error = require "#{__dirname}/../helpers/send_error"
 
 module.exports = (req, res)->
@@ -7,7 +6,7 @@ module.exports = (req, res)->
     cmd: 'update_todo'
     id: req.params.id
     changes: req.body
-  act update_opts
+  req.app.locals.act update_opts
   .catch send_error res
   .then (updated_todo)->
     res
