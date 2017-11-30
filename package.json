@@ -4,7 +4,8 @@
   "description": "API server for ph-todo-example",
   "scripts": {
     "build": "coffee --output $PWD/build/ --compile $PWD/src/",
-    "start": "node build/provision.js && node build/server.js"
+    "start": "node build/provision.js && node build/server.js",
+    "test": "mocha --require coffeescript/register test/**/*.spec.coffee"
   },
   "main": "server.js",
   "repository": "https://github.com/PinkHippos/ph-todo-api.git",
@@ -25,6 +26,11 @@
     "tcp-ping": "^0.1.1"
   },
   "devDependencies": {
-    "coffeescript": "^2.0.2"
+    "chai": "^4.1.2",
+    "coffeescript": "^2.0.2",
+    "mocha": "^4.0.1",
+    "proxyquire": "^1.8.0",
+    "sinon": "^4.1.2",
+    "supertest": "^3.0.0"
   }
 }
