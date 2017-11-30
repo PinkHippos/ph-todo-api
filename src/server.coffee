@@ -1,4 +1,3 @@
-act = require "#{__dirname}/seneca/act"
 app = require "#{__dirname}/app"
 
 port = 80
@@ -13,6 +12,6 @@ server = app.listen port, (err)->
       type: 'general'
       service: 'API Server'
       message: "API Server v#{process.env.PH_API_V} started on port #{port}"
-    act log_opts
+    app.locals.act log_opts
 
 module.exports = server
